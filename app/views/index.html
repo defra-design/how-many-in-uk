@@ -24,10 +24,15 @@
           ]
         }) }}
     {% endif %}
-    
+
     <h1 class="govuk-heading-xl">{{ pagetitle }}</h1>
 
-    <form action="/results" method="get" class="form">
+<!--
+Turn off HTML5 validation with novalidate to prevent browsers from validating the pattern attribute.
+inputmode, pattern and spellcheck below help the user to enter a whole number and bring up the numeric keypad on a mobile device
+-->
+
+    <form action="/results" method="get" class="form" novalidate>
 
       {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -38,11 +43,14 @@
           isPageHeading: false
         },
         inputmode: "numeric",
+        pattern: "[0-9]*",
+        spellcheck: false,
         classes: "govuk-input--width-10",
         id: "peopletotal",
         name: "peopletotal",
         value: data['peopletotal'],
-        errorMessage: errorMessage
+        errorMessage: errorMessage,
+        autocomplete: "off"
       }) }}
 
       {% from "govuk/components/button/macro.njk" import govukButton %}

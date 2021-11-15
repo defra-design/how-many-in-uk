@@ -51,19 +51,19 @@ router.get('/results', function(req, res) {
     // Check if it's not a number
     if(isNaN(peopletotal)){
       res.render('index', {
-        'errorMessage' : {text:"Enter a number"},
+        'errorMessage' : {text: "Enter a number"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
     } else if (peopletotal>68000000){
       res.render('index', {
-        'errorMessage' : {text:"Enter less than the UK population"},
+        'errorMessage' : {text: "Enter less than the UK population"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
-    } else if (peopletotal<101){
+    } else if (peopletotal<100){
       res.render('index', {
-        'errorMessage' : {text:"Sorry, less than 100 users is too few to estimate"},
+        'errorMessage' : {text: "Sorry, less than 100 users is too few to estimate"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
