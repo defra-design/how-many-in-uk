@@ -9,7 +9,10 @@ const router = express.Router()
 const glassesContactsPC = 0.74
 
 // Have a disability: 13 million 19%
-const disabledTotalPC = 0.19
+const disabledTotalPC = 0.21
+
+// 1 in 6 adults has the reading level of an 11-year-old
+const readingLevel11YearsPC = 0.1666
 
 // Deaf or hard of hearing: 11 million 16%
 const deafPC = 0.16
@@ -19,6 +22,7 @@ const dyslexiaPC = 0.09
 
 // Colour blindness: 3 million 4.5% (1 in 12 male and 1 in 200 female)
 const colourBlindnessPC = 0.045
+const colourBlindnessPCMale = 0.0425  //const colourBlindnessPCFemale = 0.0025
 
 // Blind or partially sighted: 2 million 3%
 const blindPC = 0.03
@@ -68,9 +72,12 @@ router.get('/results', function(req, res) {
         'peopleTotalDisplay' : peopletotal.toLocaleString('en'),
         'glassesContacts' : Math.ceil(peopletotal * glassesContactsPC).toLocaleString('en'),
         'disabledTotal' : Math.ceil(peopletotal * disabledTotalPC).toLocaleString('en'),
+        'readingLevel11Years' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
         'deaf' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
         'dyslexia' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
         'colourBlindness' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
+        'colourBlindnessMale' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
+        'colourBlindnessFemale' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
         'blind' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
         'autistic' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
         'bsl' : Math.ceil(peopletotal * bslPC).toLocaleString('en')

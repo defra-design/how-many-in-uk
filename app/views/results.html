@@ -15,21 +15,26 @@
 
     <!-- <p class="govuk-body-l">Total: {{ peopleTotalDisplay }}</p> -->
 
-    {% macro definition (key, value) %}
+    {% macro definition (key, value, extraText='') %}
       <dt class="hmp-summary-list__key">{{ key }}</dt>
-      <dd class="hmp-summary-list__value govuk-!-font-size-48">{{ value }}</dd>
+      <dd class="hmp-summary-list__value govuk-!-font-size-48">{{ value }}<span class="govuk-!-font-size-24">{{ extraText }}</span></dd>
     {% endmacro %}
 
 
     <dl class="hmp-summary-list">
       {{ definition ( "People who need to wear glasses or contact lenses", glassesContacts ) }}
-      {{ definition ( "Disabled Total", disabledTotal ) }}
-      {{ definition ( "Deaf", deaf ) }}
-      {{ definition ( "Dyslexia", dyslexia ) }}
-      {{ definition ( "Colour blindness", colourBlindness ) }}
-      {{ definition ( "Blind", blind ) }}
-      {{ definition ( "Autistic", autistic ) }}
-      {{ definition ( "BSL", bsl ) }}
+      {{ definition ( "Have any disability", disabledTotal ) }}
+
+      {{ definition ( "Reading age of 11 years old or younger", readingLevel11Years ) }}
+
+
+
+      {{ definition ( "Deaf or hard of hearing", deaf ) }}
+      {{ definition ( "Dyslexic", dyslexia ) }}
+      {{ definition ( "Colour blindness", colourBlindness, " "+colourBlindnessMale+" male, "+colourBlindnessFemale+" female" ) }}
+      {{ definition ( "Blind or partially sighted", blind ) }}
+      {{ definition ( "Autistic spectrum", autistic ) }}
+      {{ definition ( "British Sign Language (BSL) users", bsl ) }}
     </dl>
 
     <p class="govuk-body-l">
@@ -37,7 +42,7 @@
     </p>
 
     <p class="govuk-body">
-    This is an estimate based on national average <a href="https://alphagov.github.io/accessibility-personas/" class="govuk-link">figures from the Accessibility Personas</a>. The numbers won't add up because some people  have more than one disabliity.
+    This is an estimate based on national average <a href="https://alphagov.github.io/accessibility-personas/" class="govuk-link">figures from the Accessibility Personas</a>. The numbers don't add up because some people  have more than one disabliity.
     </p>
 
     <p class="govuk-body">
