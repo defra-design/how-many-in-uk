@@ -1,0 +1,50 @@
+{% extends "layout_unbranded.html" %}
+
+{% set pagetitle = "Your " + peopleTotalDisplay + " users includes" %}
+
+{% block pageTitle %}
+  {{ pagetitle }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ pagetitle }}</h1>
+
+    <!-- <p class="govuk-body-l">Total: {{ peopleTotalDisplay }}</p> -->
+
+    {% macro definition (key, value) %}
+      <dt class="hmp-summary-list__key">{{ key }}</dt>
+      <dd class="hmp-summary-list__value govuk-!-font-size-48">{{ value }}</dd>
+    {% endmacro %}
+
+
+    <dl class="hmp-summary-list">
+      {{ definition ( "People who need to wear glasses or contact lenses", glassesContacts ) }}
+      {{ definition ( "Disabled Total", disabledTotal ) }}
+      {{ definition ( "Deaf", deaf ) }}
+      {{ definition ( "Dyslexia", dyslexia ) }}
+      {{ definition ( "Colour blindness", colourBlindness ) }}
+      {{ definition ( "Blind", blind ) }}
+      {{ definition ( "Autistic", autistic ) }}
+      {{ definition ( "BSL", bsl ) }}
+    </dl>
+
+    <p class="govuk-body-l">
+    People also experience temporary or situational disability.
+    </p>
+
+    <p class="govuk-body">
+    This is an estimate based on national average <a href="https://alphagov.github.io/accessibility-personas/" class="govuk-link">figures from the Accessibility Personas</a>. The numbers won't add up because some people  have more than one disabliity.
+    </p>
+
+    <p class="govuk-body">
+      <a href="/index" class="govuk-link">Change number of users</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}
