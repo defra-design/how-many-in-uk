@@ -46,7 +46,9 @@ router.get('/index', function(req, res) {
 
 router.get('/results', function(req, res) {
 
-    var peopletotal = parseInt(req.query.peopletotal, 10)
+    var peopletotal = req.query.peopletotal.replace(/,/g, '') // remove any commas
+
+    peopletotal = parseInt(peopletotal, 10)
 
     // Check if it's not a number
     if(isNaN(peopletotal)){
