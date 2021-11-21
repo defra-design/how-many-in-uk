@@ -1,6 +1,6 @@
 {% extends "layout_unbranded.html" %}
 
-{% set pagetitle = "Estimate how many people using your service are disabled" %}
+{% set pagetitle = "Estimate how many people using your website might be disabled" %}
 
 {% block pageTitle %}
   {{ errorTitle }}{{ pagetitle }}
@@ -38,9 +38,12 @@ inputmode, pattern and spellcheck below help the user to enter a whole number an
 
       {{ govukInput({
         label: {
-          text: "Total number of people using your service",
+          text: "Total number of people using your website",
           classes: "govuk-label--m",
           isPageHeading: false
+        },
+        hint: {
+          text: "A small website might have 10,000 users, a bigger one 100,000."
         },
         inputmode: "numeric",
         pattern: "[0-9]*",

@@ -59,30 +59,30 @@ router.get('/results', function(req, res) {
       })
     } else if (peopletotal>68000000){
       res.render('index', {
-        'errorMessage' : {text: "Enter less than the UK population"},
+        'errorMessage' : {text: "Enter a number less than the UK population of 67 million"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
-    } else if (peopletotal<100){
+    } else if (peopletotal<=99){
       res.render('index', {
-        'errorMessage' : {text: "Sorry, less than 100 users is too few to estimate"},
+        'errorMessage' : {text: "Sorry, we can't estimate for sites with fewer than 100 users"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
     } else {
       res.render('results', {
         'peopleTotalDisplay' : peopletotal.toLocaleString('en'),
-        'glassesContacts' : Math.ceil(peopletotal * glassesContactsPC).toLocaleString('en'),
-        'disabledTotal' : Math.ceil(peopletotal * disabledTotalPC).toLocaleString('en'),
-        'readingLevel11Years' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
-        'deaf' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
-        'dyslexia' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
-        'colourBlindness' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
-        'colourBlindnessMale' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
-        'colourBlindnessFemale' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
-        'blind' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
-        'autistic' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
-        'bsl' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
+        'glassesContactsNum' : Math.ceil(peopletotal * glassesContactsPC).toLocaleString('en'),
+        'disabledTotalNum' : Math.ceil(peopletotal * disabledTotalPC).toLocaleString('en'),
+        'readingLevel11YearsNum' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
+        'deafNum' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
+        'dyslexiaNum' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
+        'colourBlindnessNum' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
+        'colourBlindnessMaleNum' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
+        'colourBlindnessFemaleNum' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
+        'blindNum' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
+        'autisticNum' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
+        'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
       })
     }
 

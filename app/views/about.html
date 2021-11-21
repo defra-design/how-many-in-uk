@@ -16,6 +16,46 @@
     <p class="govuk-body">About this site text.</p>
 
 
+    {% macro h1 ( str ) %}
+        <h1 class="govuk-heading-xl">{{ str }}</h1>
+    {% endmacro %}
+
+    {% macro h2 ( str ) %}
+        <h2 class="govuk-heading-l">{{ str }}</h2>
+    {% endmacro %}
+
+    {% macro h3 ( str ) %}
+        <h3 class="govuk-heading-m">{{ str }}</h3>
+    {% endmacro %}
+
+    {% macro p ( str ) %}
+        <p class="govuk-body">{{ str | safe }}</p>
+    {% endmacro %}
+
+    {% macro li ( str ) %}
+        <li>{{ str }}</li>
+    {% endmacro %}
+
+    {% macro startlist () %}
+        <ul class="govuk-list govuk-list--bullet">
+    {% endmacro %}
+
+    {% macro endlist () %}
+        </ul>
+    {% endmacro %}
+
+
+
+    {{ h1 ("Test heading 1") }}
+    {{ h2 ("Test heading 2") }}
+    {{ h3 ("Test heading 3") }}
+    {{ p ('Paragraph <a href="#">Blah</a> sdfaf') }}
+
+    {{ startlist () }}
+    {{ li ("List item") }}
+    {{ li ("List item") }}
+    {{ endlist () }}
+
 
 
   </div>

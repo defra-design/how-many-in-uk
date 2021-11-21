@@ -17,18 +17,9 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
-dl.hmp-summary-list {
-  color: #0b0c0c;
-  font-family: "Atkinson Hyperlegible", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  line-height: 1.25;
-  margin-top: 0;
-  margin-bottom: 0;
+.hmp-margin-bottom-small {
+  @include govuk-responsive-margin(4, "bottom");
 }
-dt.hmp-summary-list__key { font-size: 1.5rem !important }
-dd.hmp-summary-list__value {
-  margin-inline-start: 0px;
-  margin-bottom: 0.5em;
+.hmp-margin-bottom-big {
+  @include govuk-responsive-margin(8, "bottom");
 }
