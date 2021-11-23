@@ -57,15 +57,15 @@ router.get('/results', function(req, res) {
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
-    } else if (peopletotal>68000000){
+    } else if (peopletotal>67000001){
       res.render('index', {
-        'errorMessage' : {text: "Enter a number less than the UK population of 67 million"},
+        'errorMessage' : {text: "Total number of people must be 67 million or fewer"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
     } else if (peopletotal<=99){
       res.render('index', {
-        'errorMessage' : {text: "Sorry, we can't estimate for sites with fewer than 100 users"},
+        'errorMessage' : {text: "Total number of people must be 100 or more"},
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
