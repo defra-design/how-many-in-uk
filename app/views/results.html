@@ -24,7 +24,7 @@
         <span class="govuk-!-font-size-24">{{ startText }}</span>
         {% if linkURL!='' %}
           <a href="{{ linkURL }}" class="govuk-link govuk-!-font-size-24">
-            {{ linkText }}<span class="govuk-visually-hidden">{{ hiddenLinkText }}</span></a>
+            {{ linkText }}<span class="govuk-visually-hidden">&#32;{{ hiddenLinkText }}</span></a>
         {% endif %}
         {% if afterText!='' %}
            <span class="govuk-!-font-size-24">({{ afterText }})</span>
@@ -105,6 +105,10 @@
     <p class="govuk-body-l">
     <span class="govuk-!-font-size-48">Almost all</span><br>
     of the {{peopleTotalDisplay}} people who use your website may also experience <a href="https://www.crowncommercial.gov.uk/news/accessibility-is-usability-thinking-about-all-your-users">temporary or situational disability</a> at some time. For example, they may break their wrist, have an eye infection or be using their phone in bright sunlight.
+    </p>
+    
+    <p class="govuk-body">
+    Copy the URL for this page to share a link to the results for your site.
     </p>
 
     <p class="govuk-body">

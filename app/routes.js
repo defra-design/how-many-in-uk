@@ -36,6 +36,7 @@ const bslPC = 0.002
 
 // Add your routes here - above the module.exports line
 
+// Initialise the start page and hide errors
 router.get('/index', function(req, res) {
     res.render('index', {
       'errorMessage' : null,
@@ -44,7 +45,9 @@ router.get('/index', function(req, res) {
     })
 });
 
-router.get('/results', function(req, res) {
+// Check for errors from the form and display error messages if needed
+// If no errors send to nice URL to display as /people/nnnnn
+router.get('/check', function(req, res) {
 
     var peopletotal = req.query.peopletotal.replace(/,/g, '') // remove any commas
 
@@ -70,21 +73,51 @@ router.get('/results', function(req, res) {
         'errorSummary' : true
       })
     } else {
-      res.render('results', {
-        'peopleTotalDisplay' : peopletotal.toLocaleString('en'),
-        'glassesContactsNum' : Math.ceil(peopletotal * glassesContactsPC).toLocaleString('en'),
-        'disabledTotalNum' : Math.ceil(peopletotal * disabledTotalPC).toLocaleString('en'),
-        'readingLevel11YearsNum' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
-        'deafNum' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
-        'dyslexiaNum' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
-        'colourBlindnessNum' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
-        'colourBlindnessMaleNum' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
-        'colourBlindnessFemaleNum' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
-        'blindNum' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
-        'autisticNum' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
-        'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
-      })
+      res.redirect('/people/'+peopletotal)
     }
+
+});
+
+// If no errors send to nice URL to display as /people/nnnnn
+// This URL can also be used directly
+// The regular expression allows only numbers between 3 and 8 digits long
+router.get('/people/:num([0-9]{3,8})', function(req, res) {
+
+    var peopletotal = req.params.num
+
+    peopletotal = parseInt(peopletotal, 10)
+
+    res.render('results', {
+      'peopleTotalDisplay' : peopletotal.toLocaleString('en'),
+      'glassesContactsNum' : Math.ceil(peopletotal * glassesContactsPC).toLocaleString('en'),
+      'disabledTotalNum' : Math.ceil(peopletotal * disabledTotalPC).toLocaleString('en'),
+      'readingLevel11YearsNum' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
+      'deafNum' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
+      'dyslexiaNum' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
+      'colourBlindnessNum' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
+      'colourBlindnessMaleNum' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
+      'colourBlindnessFemaleNum' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
+      'blindNum' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
+      'autisticNum' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
+      'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
+    })
+
+});
+
+// About page averages
+router.get('/about', function(req, res) {
+
+  res.render('about', {
+    'glassesContactsAv' : glassesContactsPC*100,
+    'disabledTotalAv' : disabledTotalPC*100,
+    'readingLevel11YearsAv' : readingLevel11YearsPC*100,
+    'deafAv' : deafPC*100,
+    'dyslexiaAv' : dyslexiaPC*100,
+    'colourBlindnessAv' : colourBlindnessPC*100,
+    'blindAv' : blindPC*100,
+    'autisticAv' : autisticPC*100,
+    'bslNumAv' : bslPC*100
+  })
 
 });
 

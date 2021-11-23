@@ -8,45 +8,32 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% macro h2 ( str ) %}
+    <h2 class="govuk-heading-l">{{ str }}</h2>
+{% endmacro %}
 
-    <h1 class="govuk-heading-xl">{{ pagetitle }}</h1>
+{% macro h3 ( str ) %}
+    <h3 class="govuk-heading-m">{{ str }}</h3>
+{% endmacro %}
 
-    <p class="govuk-body">About this site text to follow.</p>
+{% macro p ( str ) %}
+    <p class="govuk-body">{{ str | safe }}</p>
+{% endmacro %}
 
+{% macro li ( str ) %}
+    <li>{{ str }}</li>
+{% endmacro %}
 
-    {% macro h1 ( str ) %}
-        <h1 class="govuk-heading-xl">{{ str }}</h1>
-    {% endmacro %}
+{% macro startlist () %}
+    <ul class="govuk-list govuk-list--bullet">
+{% endmacro %}
 
-    {% macro h2 ( str ) %}
-        <h2 class="govuk-heading-l">{{ str }}</h2>
-    {% endmacro %}
-
-    {% macro h3 ( str ) %}
-        <h3 class="govuk-heading-m">{{ str }}</h3>
-    {% endmacro %}
-
-    {% macro p ( str ) %}
-        <p class="govuk-body">{{ str | safe }}</p>
-    {% endmacro %}
-
-    {% macro li ( str ) %}
-        <li>{{ str }}</li>
-    {% endmacro %}
-
-    {% macro startlist () %}
-        <ul class="govuk-list govuk-list--bullet">
-    {% endmacro %}
-
-    {% macro endlist () %}
-        </ul>
-    {% endmacro %}
-
+{% macro endlist () %}
+    </ul>
+{% endmacro %}
 
 <!--
-    {{ h1 ("Test heading 1") }}
+
     {{ h2 ("Test heading 2") }}
     {{ h3 ("Test heading 3") }}
     {{ p ('Paragraph <a href="#">Blah</a> sdfaf') }}
@@ -57,6 +44,34 @@
     {{ endlist () }}
 -->
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ pagetitle }}</h1>
+
+    <p class="govuk-body">This service estimates the number of people with disabilities who use a website. It  mainly uses percentages taken from the <a href="https://alphagov.github.io/accessibility-personas/" class="govuk-link">Government Digital Service (GDS) accessibility personas</a>.</p>
+
+    <p class="govuk-body">It's intended as a prompt for discussion and thought. It's not an exact way of measuring anything about the people using your service.</p>
+
+    <p class="govuk-body">Very small numbers of users may give unreliable estimates. Some services, particularly those aimed at disabled people, may have more disabled users.</p>
+
+    <h2 class="govuk-heading-m">The percentages we use</h2>
+
+    <p class="govuk-body">People who:</p>
+
+    {{ startlist () }}
+        {{ li ("wear glasses or contact lenses " + glassesContactsAv + "%" ) }}
+        {{ li ("have any disability " + disabledTotalAv + "%" ) }}
+        {{ li ("have a reading age of 11 years old or younger " + readingLevel11YearsAv + "%" ) }}
+        {{ li ("are deaf or hard of hearing " + deafAv + "%" ) }}
+        {{ li ("are dyslexic " + dyslexiaAv + "%" ) }}
+        {{ li ("are colour blind " + colourBlindnessAv + "%" ) }}
+        {{ li ("are blind or partially sighted " + blindAv + "%" ) }}
+        {{ li ("are on the autistic spectrum " + autisticAv + "%" ) }}
+        {{ li ("are British Sign Language (BSL) users " + bslNumAv + "%" ) }}
+    {{ endlist () }}
+
+    <p class="govuk-body">The results page links to the sources for these percentages.</p>
 
   </div>
 </div>
