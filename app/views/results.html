@@ -21,10 +21,9 @@
 
       <p class="govuk-body">
         <span class="govuk-!-font-size-48">{{ number }} </span><br>
-        <span class="govuk-!-font-size-24">{{ startText }}</span>
+        <span class="govuk-!-font-size-24">{{ startText }} </span>
         {% if linkURL!='' %}
-          <a href="{{ linkURL }}" class="govuk-link govuk-!-font-size-24">
-            {{ linkText }}</a>
+          <a href="{{ linkURL }}" class="govuk-link govuk-!-font-size-24">{{ linkText }}</a>
         {% endif %}
         {% if afterText!='' %}
            <span class="govuk-!-font-size-24"> ({{ afterText }})</span>
