@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block headIcons %}
-  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{ asset_path }}images/how-many.ico?0.18.3" type="image/x-icon" />
 {% endblock %}
 
 {% block head %}
@@ -15,6 +15,12 @@
   {% for stylesheetUrl in extensionConfig.stylesheets %}
     <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
   {% endfor %}
+
+  <meta property="og:title" content="Estimate how many people using your website might be disabled" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://how-many.herokuapp.com/assets/images/open-graph-image.png" />
+  <meta property="og:url" content="https://how-many.herokuapp.com/" />
+
 {% endblock %}
 
 {% block skipLink %}{% endblock %}{# REMOVE SKIP LINKS AS THERE IS NOTHING TO SKIP #}
