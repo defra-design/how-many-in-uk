@@ -51,8 +51,6 @@ router.get('/check', function(req, res) {
 
     var peopletotal = req.query.peopletotal.replace(/,/g, '') // remove any commas
 
-    peopletotal = parseInt(peopletotal, 10)
-
     // Check if it's not a number
     if(isNaN(peopletotal)){
       res.render('index', {
@@ -60,7 +58,13 @@ router.get('/check', function(req, res) {
         'errorTitle' : "Error - ",
         'errorSummary' : true
       })
-    } else if (peopletotal>67000001){
+      return 0
+    }
+
+    // Convert to an integer
+    peopletotal = parseInt(peopletotal, 10)
+
+    if (peopletotal>67000001){
       res.render('index', {
         'errorMessage' : {text: "Total number of people must be 67 million or fewer"},
         'errorTitle' : "Error - ",
