@@ -26,7 +26,7 @@
           <a href="{{ linkURL }}" class="govuk-link govuk-!-font-size-24">{{ linkText }}</a>
         {% endif %}
         {% if afterText!='' %}
-           <span class="govuk-!-font-size-24"> ({{ afterText }})</span>
+           <span class="govuk-!-font-size-24"> {{ afterText }}</span>
         {% endif %}
      </p>
 
@@ -49,17 +49,18 @@
       ) }}
 
       {{ definition (
-        readingLevel11YearsNum,
-        "who have a ",
-        "https://www.gov.uk/government/publications/understanding-disabilities-and-impairments-user-profiles/simone-dyslexic-user",
-        "reading age of 11 years old or younger"
-      ) }}
-
-      {{ definition (
         deafNum,
         "who are ",
         "https://www.gov.uk/government/publications/understanding-disabilities-and-impairments-user-profiles/saleem-profoundly-deaf-user",
         "deaf or hard of hearing"
+      ) }}
+
+      {{ definition (
+        readingLevel11YearsNum,
+        "whose ",
+        "https://literacytrust.org.uk/parents-and-families/adult-literacy/what-do-adult-literacy-levels-mean/",
+        "literacy is below level 1",
+        "and so struggle with tasks such as reading a timetable or writing a letter"
       ) }}
 
       {{ definition (
@@ -74,7 +75,7 @@
         "who are ",
         "https://www.colourblindawareness.org/colour-blindness/",
         "colour blind",
-        colourBlindnessMaleNum+" male, "+colourBlindnessFemaleNum+" female"
+        "(" + colourBlindnessMaleNum + " male, " + colourBlindnessFemaleNum + " female)"
       ) }}
 
       {{ definition (

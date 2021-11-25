@@ -11,8 +11,9 @@ const glassesContactsPC = 0.74
 // Have a disability: 13 million 19%
 const disabledTotalPC = 0.21
 
-// 1 in 6 adults has the reading level of an 11-year-old
-const readingLevel11YearsPC = 0.1666
+// 14.9% (or 1 in 7) of adults in England have literacy levels at or below
+// Entry Level 3, which is equivalent to the literacy skills expected of a nine to 11-year-old
+const readingLevel11YearsPC = 0.149
 
 // Deaf or hard of hearing: 11 million 16%
 const deafPC = 0.16
@@ -111,16 +112,20 @@ router.get('/people/:num([0-9]{3,8})', function(req, res) {
 // About page averages
 router.get('/about', function(req, res) {
 
+  function round2PC(value) {
+    return Math.round(value * 1000) / 10;
+  }
+
   res.render('about', {
-    'glassesContactsAv' : glassesContactsPC*100,
-    'disabledTotalAv' : disabledTotalPC*100,
-    'readingLevel11YearsAv' : readingLevel11YearsPC*100,
-    'deafAv' : deafPC*100,
-    'dyslexiaAv' : dyslexiaPC*100,
-    'colourBlindnessAv' : colourBlindnessPC*100,
-    'blindAv' : blindPC*100,
-    'autisticAv' : autisticPC*100,
-    'bslNumAv' : bslPC*100
+    'glassesContactsAv' : round2PC( glassesContactsPC ),
+    'disabledTotalAv' : round2PC( disabledTotalPC ),
+    'readingLevel11YearsAv' : round2PC( readingLevel11YearsPC ),
+    'deafAv' : round2PC( deafPC ),
+    'dyslexiaAv' : round2PC( dyslexiaPC ),
+    'colourBlindnessAv' : round2PC( colourBlindnessPC ),
+    'blindAv' : round2PC( blindPC ),
+    'autisticAv' : round2PC( autisticPC ),
+    'bslNumAv' : round2PC( bslPC )
   })
 
 });
