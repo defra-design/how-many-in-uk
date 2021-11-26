@@ -52,6 +52,16 @@ router.get('/check', function(req, res) {
 
     var peopletotal = req.query.peopletotal.replace(/,/g, '') // remove any commas
 
+    // Check if nothing entered
+    if(peopletotal.trim()==""){
+      res.render('index', {
+        'errorMessage' : {text: "Enter the number of people who will use your website"},
+        'errorTitle' : "Error - ",
+        'errorSummary' : true
+      })
+      return 0
+    }
+
     // Check if it's not a number
     if(isNaN(peopletotal)){
       res.render('index', {
