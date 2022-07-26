@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-// Define percentages for each disability
+// Define percentages for each disability 
 
 // UK population: 67 million
 
