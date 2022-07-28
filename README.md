@@ -40,6 +40,13 @@ The site uses the template in `app/views/layout_unbranded.html`.
 The main service name that appears in the site banner is stored in `/app/config.js`.
 
 
+### Useful background information
+
+* [GOV.UK Prototype Kit Tutorials and templates](https://govuk-prototype-kit.herokuapp.com/docs/tutorials-and-examples)
+* [Design System components](https://design-system.service.gov.uk/components/) - the kit uses HTML or Nunjucks components from the system
+* [Nunjucks templating guide](https://mozilla.github.io/nunjucks/templating.html) - the templates use Nunjucks
+
+
 ### How the code works
 
 The default page is `/app/views/index.html`.
