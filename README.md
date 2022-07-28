@@ -29,6 +29,11 @@ The list is:
 
 The site uses the [GOV.UK Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs). Instructions to update the kit are in [Update your Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs/updating-the-kit).
 
+
+### Main template and config
+
+The site uses the template in `app/views/layout_unbranded.html`.
+
 The main service name that appears in the site banner is stored in `/app/config.js`.
 
 
@@ -51,3 +56,22 @@ There are 3 other pages:
 * `/app/views/about.html` - provides general information about the app and also displays the raw percentages used which are included dynamically from the values stored in `routes.js`
 * `/app/views/accessibility.html` - the accessibility statement
 * `/app/views/glasses-contact-lenses.html` - some background information about the statistic we use - it's stored here because the relevant link was a PDF and not accessible.
+
+
+### Images
+
+The ear and eye icons in the open graph image for this site are licensed under the Creative Commons Attribution 4.0 International license. The original icon artwork was used under the icon licence provided by Font Awesome.
+
+The images are stored in `/app/assets/images/`.
+
+The code to link to these is in `app/views/layout_unbranded.html`.
+
+
+### Styling/CSS
+
+We are mostly using the default [GOV.UK Design System](https://design-system.service.gov.uk/) styles from the prototype kit. The few overrides are in `app/assets/sass/unbranded.scss` and `app/assets/sass/application.scss`.
+
+
+### Font
+
+We are not licensed to use the GOV Transport font so we cannot use that (it is the default in the prototype kit). We use Atkinson Hyperlegible served from Google Fonts. The code to link to the fonts is in `app/views/layout_unbranded.html`.
