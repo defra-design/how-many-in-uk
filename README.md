@@ -2,9 +2,11 @@
 
 A simple website to calculate how many users of a service have disabilities. Based on the GOV.UK Prototype Kit.
 
+[Live site - estimate how many people using your website might be disabled](https://how-many.herokuapp.com/)
+
 ## What the site does
 
-You enter the estimated total number of visitors to your site. (Error checking restricts this to at least 100 and fewwr than 67 million.) The site produces a list of estimated numbers for different types of disability. To calculate these, it mainly uses percentages taken from the [Government Digital Service (GDS) accessibility personas](https://alphagov.github.io/accessibility-personas/).
+You enter the estimated total number of visitors to your site. (Error checking restricts this to at least 100 and fewer than 67 million.) The site produces a list of estimated numbers for different types of disability. To calculate these, it mainly uses percentages taken from the [Government Digital Service (GDS) accessibility personas](https://alphagov.github.io/accessibility-personas/).
 
 The list is:
 
@@ -19,15 +21,16 @@ The list is:
 * are British Sign Language (BSL) users
 
 
-## How to update the percentages used
-
-`/app/routes.js` includes a list of the percentages - for example `const glassesContactsPC = 0.74`. Change the values in this list.
-
 ## Developer notes
 
 ### Site uses GOV.UK Prototype Kit
 
 The site uses the [GOV.UK Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs). Instructions to update the kit are in [Update your Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs/updating-the-kit).
+
+
+### How to update the percentages used
+
+`/app/routes.js` includes a list of the percentages - for example `const glassesContactsPC = 0.74`. Change the values in this list.
 
 
 ### Main template and config
@@ -55,7 +58,7 @@ There are 3 other pages:
 
 * `/app/views/about.html` - provides general information about the app and also displays the raw percentages used which are included dynamically from the values stored in `routes.js`
 * `/app/views/accessibility.html` - the accessibility statement
-* `/app/views/glasses-contact-lenses.html` - some background information about the statistic we use - it's stored here because the relevant link was a PDF and not accessible.
+* `/app/views/glasses-contact-lenses.html` - some background information about the statistics we use - it's stored here because the relevant link was a PDF and not accessible.
 
 
 ### Images
@@ -75,3 +78,22 @@ We are mostly using the default [GOV.UK Design System](https://design-system.ser
 ### Font
 
 We are not licensed to use the GOV Transport font so we cannot use that (it is the default in the prototype kit). We use Atkinson Hyperlegible served from Google Fonts. The code to link to the fonts is in `app/views/layout_unbranded.html`.
+
+
+## Forking or creating a copy
+
+We welcome forking or copying but please consider before you do that if your needs are better served by:
+
+* linking to our version instead of creating a copy
+* submitting an update or making a feature request to [accessibility@defra.gov.uk](mailto:accessibility@defra.gov.uk)
+
+If you do make a copy please:
+
+* change or remove the open graph images and icon files to avoid confusion
+* change the site name or title, unless you are using statistics for a different country
+* consider giving a credit to the original authors
+
+
+## To contact us
+
+Email [accessibility@defra.gov.uk](mailto:accessibility@defra.gov.uk)
