@@ -1,5 +1,12 @@
-const express = require('express')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
+
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+// Add your routes here
 
 // Define percentages for each disability 
 
@@ -33,9 +40,6 @@ const autisticPC = 0.01
 
 // BSL users 151,000 0.2%
 const bslPC = 0.002
-
-
-// Add your routes here - above the module.exports line
 
 // Initialise the start page and hide errors
 router.get('/index', function(req, res) {
@@ -140,4 +144,3 @@ router.get('/about', function(req, res) {
 
 });
 
-module.exports = router
