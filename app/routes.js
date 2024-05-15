@@ -15,28 +15,28 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Wear glasses or contact lenses: 49 million 74%
 const glassesContactsPC = 0.74
 
-// Have a disability: 13 million 19%
-const disabledTotalPC = 0.21
+// Have a disability: 14.1 million 22%
+const disabledTotalPC = 0.22
 
 // 14.9% (or 1 in 7) of adults in England have literacy levels at or below
 // Entry Level 3, which is equivalent to the literacy skills expected of a nine to 11-year-old
-const readingLevel11YearsPC = 0.149
+const readingLevel11YearsPC = 0.164
 
-// Deaf or hard of hearing: 11 million 16%
-const deafPC = 0.16
+// Deaf or hard of hearing: 12 million 20%
+const deafPC = 0.20
 
-// Dyslexia: 6.3 million 9%
-const dyslexiaPC = 0.09
+// Dyslexia: 6 million 10%
+const dyslexiaPC = 0.10
 
 // Colour blindness: 3 million 4.5% (1 in 12 male and 1 in 200 female)
 const colourBlindnessPC = 0.045
 const colourBlindnessPCMale = 0.0425  //const colourBlindnessPCFemale = 0.0025
 
-// Blind or partially sighted: 2 million 3%
-const blindPC = 0.03
+// Blind or partially sighted: 340k 0.56%
+const blindPC = 0.056
 
-// Autistic spectrum: 700,000 1%
-const autisticPC = 0.01
+// Autistic spectrum: 700,000 1.16%
+const autisticPC = 0.0116
 
 // BSL users 151,000 0.2%
 const bslPC = 0.002
