@@ -33,7 +33,7 @@ const colourBlindnessPC = 0.045
 const colourBlindnessPCMale = 0.0425  //const colourBlindnessPCFemale = 0.0025
 
 // Blind or partially sighted: 340k 0.56%
-const blindPC = 0.056
+const blindPC = 0.0056
 
 // Autistic spectrum: 700,000 1.16%
 const autisticPC = 0.0116
