@@ -22,15 +22,21 @@ const disabledTotalPC = 0.22
 // Entry Level 3, which is equivalent to the literacy skills expected of a nine to 11-year-old
 const readingLevel11YearsPC = 0.164
 
-// Deaf or hard of hearing: 12 million 20%
-const deafPC = 0.20
+// deaf, have hearing loss or tinnitus, 1 in 3 33.3%
+const deafPC = 0.333
 
 // Dyslexia: 6 million 10%
 const dyslexiaPC = 0.10
 
+// Dyscalculia: 3 to 6%
+const dyscalculiaPC = 0.06
+
 // Colour blindness: 3 million 4.5% (1 in 12 male and 1 in 200 female)
 const colourBlindnessPC = 0.045
 const colourBlindnessPCMale = 0.0425  //const colourBlindnessPCFemale = 0.0025
+
+// Sight loss: 2m 3.33%
+const sightLossPC = 0.0333
 
 // Blind or partially sighted: 340k 0.56%
 const blindPC = 0.0056
@@ -113,9 +119,11 @@ router.get('/people/:num([0-9]{3,8})', function(req, res) {
       'readingLevel11YearsNum' : Math.ceil(peopletotal * readingLevel11YearsPC).toLocaleString('en'),
       'deafNum' : Math.ceil(peopletotal * deafPC).toLocaleString('en'),
       'dyslexiaNum' : Math.ceil(peopletotal * dyslexiaPC).toLocaleString('en'),
+      'dyscalculiaNum' : Math.ceil(peopletotal * dyscalculiaPC).toLocaleString('en'),
       'colourBlindnessNum' : Math.ceil(peopletotal * colourBlindnessPC).toLocaleString('en'),
       'colourBlindnessMaleNum' : Math.ceil(peopletotal * colourBlindnessPCMale).toLocaleString('en'),
       'colourBlindnessFemaleNum' : (Math.ceil(peopletotal * colourBlindnessPC) - Math.ceil(peopletotal * colourBlindnessPCMale)).toLocaleString('en'),
+      'sightLossNum' : Math.ceil(peopletotal * sightLossPC).toLocaleString('en'),
       'blindNum' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
       'autisticNum' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
       'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
