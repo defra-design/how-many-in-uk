@@ -13,12 +13,17 @@ The list is:
 * wear glasses or contact lenses
 * have any disability
 * have literacy skills below level 1
-* are deaf or hard of hearing
+* are deaf or hard of hearing or have Tinnitus
 * are dyslexic
+* have dyscalculia
 * have a colour vision deficiency
+* are living with sight loss
 * are blind or partially sighted
 * are autistic
+* have ADHD
 * are British Sign Language (BSL) users
+* have Chronic Pain
+* are in contact with NHS mental health services
 
 
 ## Developer notes

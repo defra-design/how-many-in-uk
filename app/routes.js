@@ -44,8 +44,17 @@ const blindPC = 0.0056
 // Autistic spectrum: 700,000 1.16%
 const autisticPC = 0.0116
 
+// ADHD: 2,600,000 4.33%
+const adhdPC = 0.0433
+
+// NHS Mental Health: 1.91m 2.85%
+const mentalHealthPC = 0.0285
+
 // BSL users 151,000 0.2%
 const bslPC = 0.002
+
+// Chronic Pain: between 21m and 30.78m 35% to 51.3%
+const chronicPainPC = 0.513
 
 // Initialise the start page and hide errors
 router.get('/index', function(req, res) {
@@ -126,7 +135,10 @@ router.get('/people/:num([0-9]{3,8})', function(req, res) {
       'sightLossNum' : Math.ceil(peopletotal * sightLossPC).toLocaleString('en'),
       'blindNum' : Math.ceil(peopletotal * blindPC).toLocaleString('en'),
       'autisticNum' : Math.ceil(peopletotal * autisticPC).toLocaleString('en'),
-      'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en')
+      'adhdNum' : Math.ceil(peopletotal * adhdPC).toLocaleString('en'),
+      'mentalHealthNum' : Math.ceil(peopletotal * mentalHealthPC).toLocaleString('en'),
+      'bslNum' : Math.ceil(peopletotal * bslPC).toLocaleString('en'),
+      'chronicPainNum' : Math.ceil(peopletotal * chronicPainPC).toLocaleString('en')
     })
 
 });
